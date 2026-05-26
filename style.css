@@ -1,0 +1,154 @@
+/* ---------- GLOBAL ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #111827;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* ---------- MAIN LAYOUT ---------- */
+
+.calendar-container {
+    display: grid;
+    grid-template-columns: 70px 1fr 1fr;
+
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ---------- TIME COLUMN ---------- */
+
+.time-column {
+    background: #0f172a;
+    border-right: 1px solid #334155;
+}
+
+.time-header {
+    height: 80px;
+    border-bottom: 1px solid #334155;
+}
+
+.time-slot {
+    height: 80px;
+    padding-top: 4px;
+
+    text-align: center;
+    font-size: 0.9rem;
+    color: #94a3b8;
+
+    border-bottom: 1px solid #1e293b;
+}
+
+/* ---------- DAY COLUMNS ---------- */
+
+.day-column {
+    display: flex;
+    flex-direction: column;
+
+    border-right: 1px solid #1e293b;
+}
+
+/* ---------- DAY HEADER ---------- */
+
+.day-header {
+    height: 80px;
+
+    padding: 12px;
+
+    background: #1e293b;
+
+    border-bottom: 1px solid #334155;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.day-header h2 {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.day-header p {
+    color: #94a3b8;
+}
+
+/* ---------- EVENTS AREA ---------- */
+
+.events-area {
+    position: relative;
+    flex: 1;
+
+    background-image:
+        linear-gradient(
+            to bottom,
+            #1e293b 1px,
+            transparent 1px
+        );
+
+    background-size: 100% 80px;
+}
+
+/* ---------- EVENTS ---------- */
+
+.event {
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+
+    background: #3b82f6;
+    border-radius: 12px;
+
+    padding: 10px;
+
+    font-size: 0.95rem;
+
+    overflow: hidden;
+}
+
+/* ---------- CURRENT TIME LINE ---------- */
+
+.current-time-line {
+    position: absolute;
+
+    top: 320px;
+
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background: red;
+
+    z-index: 20;
+}
+
+/* ---------- MOBILE / PORTRAIT ---------- */
+
+@media (max-width: 900px) {
+
+    .calendar-container {
+        grid-template-columns: 55px 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .day-column:nth-child(3) {
+        display: none;
+    }
+
+    .time-slot {
+        font-size: 0.7rem;
+    }
+
+    .day-header h2 {
+        font-size: 1.1rem;
+    }
+}
